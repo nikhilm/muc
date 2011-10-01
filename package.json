@@ -1,0 +1,19 @@
+{
+  "author": "Nikhil Marathe <nsm.nikhil@gmail.com>",
+  "name": "muc",
+  "description": "Demo Multi-User Chat with support for multiple rooms",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nikhilm/muc.git"
+  },
+  "main": "server/server.js",
+  "engines": {
+    "node": ">= v0.4.0"
+  },
+  "dependencies": {
+    "now": ">= 0.7.0",
+    "node-static": ">= 0.5.0"
+},
+  "devDependencies": {}
+}
