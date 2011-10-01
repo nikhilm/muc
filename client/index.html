@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>MUC</title>
+        <script language="javascript" type="text/javascript" src="jquery-1.5.min.js"> </script>
+        <script language="javascript" type="text/javascript" src="/nowjs/now.js"> </script>
+        <script language="javascript" type="text/javascript" src="client.js"> </script>
+        <style>
+            #main {
+            	width: 80%;
+            	height: 100%;
+            	float: left;
+            }
+
+            #main input {
+                width: 70%;
+                position: absolute;
+                bottom: 10px;
+            }
+            #roomlist {
+                float: right;
+                width: 10%;
+            	list-style-type: none;
+            }
+
+            #roomlist li {
+            	color: gray;
+            	border-radius: 5px;
+            	padding-left: 10px;
+            }
+
+            #roomlist li:hover, #roomlist li.active {
+                color: white;
+                background: orange;
+            }
+
+            #roomlist #add-room {
+            	background: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <h1>Welcome to MUC</h1>
+            <p>Join a room to start chatting &rarr;</p>
+        </div>
+        <ul id="roomlist">
+            <li id="add-room">+ Join</li>
+        </ul>
+    </body>
+</html>
