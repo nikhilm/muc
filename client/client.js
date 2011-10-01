@@ -1,6 +1,5 @@
 (function() {
     var sendMessage = function(room, message) {
-    console.log(now.distributeMessage);
         now.distributeMessage(room, message);
     }
 
@@ -20,6 +19,15 @@
         $('#room-' + name + ' input').focus();
     }
 
+    var destroyRoomUi = function(name) {
+        $('#main').children().hide();
+        $('#room-' + name).remove();
+        $('#act-' + name).remove();
+
+        if ($('#roomlist li').length > 1)
+            showRoomUi($('#roomlist li')[0].id.replace('act-', ''));
+    }
+
     var createRoomUi = function(name) {
         var roomUi = '<div class="room" id="room-' + name + '"><h3>Room: ' + name + '</h3><ul></ul><input></input></div>';
         $('#main').append(roomUi);
@@ -31,9 +39,17 @@
             }
         });
 
-        $('#roomlist').prepend('<li id="act-' + name + '">' + name + '</li>');
+        $('#roomlist').prepend('<li id="act-' + name + '">' + name + '<a href="#" id="leave-' + name + '">(leave)</a></li>');
         $('#act-'+name).click(function() {
             showRoomUi(this.id.replace('act-', ''));
+        });
+
+        $('#leave-'+name).click(function() {
+            var self = this;
+            now.leaveRoom(name, function() {
+                destroyRoomUi(self.id.replace('leave-', ''));
+            });
+            return false;
         });
 
         showRoomUi(name);

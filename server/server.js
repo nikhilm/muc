@@ -14,10 +14,13 @@ var everyone = nowjs.initialize(server);
 
 everyone.now.joinRoom = function(name, callback) {
     var room = nowjs.getGroup('room-' + name);
-    room.now.distributeMessage = function(room, nick, message) {
-        console.log(room, nick, message);
-    }
     room.addUser(this.user.clientId);
+    callback();
+}
+
+everyone.now.leaveRoom = function(name, callback) {
+    var room = nowjs.getGroup('room-' + name);
+    room.removeUser(this.user.clientId);
     callback();
 }
 
